@@ -16,7 +16,7 @@
 
 buildscript {
     ext {
-        compose_compiler_version = '1.4.0'
+        compose_compiler_version = '1.4.1'
     }
 }
 

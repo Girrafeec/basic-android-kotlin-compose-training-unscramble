@@ -45,13 +45,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.android.unscramble.MainActivity
 import com.example.android.unscramble.R
+import com.example.android.unscramble.daggerViewModel
+import com.example.android.unscramble.di.DaggerAppComponent
 import com.example.android.unscramble.ui.theme.UnscrambleTheme
 
 @Composable
 fun GameScreen(
     modifier: Modifier = Modifier,
-    gameViewModel: GameViewModel = viewModel()
+    gameViewModel: GameViewModel = daggerViewModel {
+        MainActivity.appComponent.getViewModel()
+    }
 ) {
     val gameUiState by gameViewModel.uiState.collectAsState()
     Column(

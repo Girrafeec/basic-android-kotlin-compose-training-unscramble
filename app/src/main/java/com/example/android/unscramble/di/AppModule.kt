@@ -6,25 +6,17 @@ import com.example.android.unscramble.ui.GameViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Module(
-    includes = [AppModule.AppBindModule::class]
-//    subcomponents = [GameScreenComponent::class]
-)
+@Module
+@InstallIn(SingletonComponent::class)
 class AppModule {
 
     @Singleton
     @Provides
     fun provideDataSource() = DataSource()
 
-    @Module
-    interface AppBindModule {
-
-        @Binds
-        @Singleton
-        fun bindGameViewModel(impl: GameViewModel): ViewModel
-
-    }
 
 }

@@ -22,22 +22,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.example.android.unscramble.app.App
-import com.example.android.unscramble.di.AppComponent
-import com.example.android.unscramble.di.DaggerAppComponent
 import com.example.android.unscramble.ui.GameScreen
 import com.example.android.unscramble.ui.theme.UnscrambleTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    companion object {
-        lateinit var appComponent: AppComponent
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        appComponent = DaggerAppComponent.builder().build()
-        appComponent.inject(this)
-
 
         setContent {
             UnscrambleTheme {

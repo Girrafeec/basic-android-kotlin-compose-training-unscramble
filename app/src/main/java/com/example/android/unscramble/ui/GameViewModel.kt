@@ -21,6 +21,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.android.unscramble.data.DataSource
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -31,6 +32,7 @@ import javax.inject.Inject
 /**
  * ViewModel containing the app data and methods to process the data
  */
+@HiltViewModel
 class GameViewModel @Inject constructor(
     private val dataSource: DataSource
 ) : ViewModel() {
